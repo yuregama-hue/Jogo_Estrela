@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+#score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 24px;
+    z-index: 10;
+}
+
+#player {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #00ffcc;
+    border-radius: 50%;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: left 0.1s ease-out;
+}
+
+.star {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: yellow;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: fall 3s linear forwards;
+}
+
+.enemy {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: red;
+    clip-path: polygon(50% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); /* Forma de diamante ou "inimigo" simples */
+    animation: fall 3s linear forwards;
+}
+
+#mute-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #0c0c2c;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    cursor: pointer;
+    z-index: 20; /* Z-index maior que o placar para garantir que fique na frente */
+}
+
+#mute-btn:hover {
+    background-color: #00ffff;
+    color: #0c0c2c;
+}
+
+@keyframes fall {
+    from { top: -50px; }
+    to { top: 100vh; }
+}
